@@ -13,63 +13,27 @@ export default function View() {
       setNotes(JSON.parse(storedNotes));
     }
   }, []);
-  const [currentNoteIndex, setCurrentNoteIndex] = useState(0); // Track the current note index
-  const handleNext = () => {
-    if (currentNoteIndex < notes.length - 1) {
-      setCurrentNoteIndex(currentNoteIndex + 1);
-    }
-  };
 
-  // Navigate to the previous note
-  const handlePrevious = () => {
-    if (currentNoteIndex > 0) {
-      setCurrentNoteIndex(currentNoteIndex - 1);
-    }
-  };
   return (
     <div>
       <div className="text-3xl text-center font-bold text-gray-800 tracking-tight leading-tight py-4 mb-6 border-b border-gray-300">
         Notes
       </div>
-      <div className="flex justify-between mb-6">
-        <button
-          onClick={handlePrevious}
-          disabled={currentNoteIndex === 0} // Disable if on the first note
-          className={`px-4 py-2 bg-blue-500 text-white rounded-md ${
-            currentNoteIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-        >
-          Previous
-        </button>
-
-        <button
-          onClick={handleNext}
-          disabled={currentNoteIndex === notes.length - 1} // Disable if on the last note
-          className={`px-4 py-2 bg-blue-500 text-white rounded-md ${
-            currentNoteIndex === notes.length - 1
-              ? "opacity-50 cursor-not-allowed"
-              : ""
-          }`}
-        >
-          Next
-        </button>
+      <div>
+        {notes.length > 0 ? (
+          notes.map((note, index) => (
+            <NoteCard
+              key={index}
+              title={note.title}
+              description={note.description}
+              content={note.content}
+              date={note.date}
+            />
+          ))
+        ) : (
+          <p className="text-center text-gray-600">No notes found</p>
+        )}
       </div>
-
-      {notes.length > 0 ? (
-        <div>
-          {/* Display the current note */}
-          <NoteCard
-            title={notes[currentNoteIndex].title}
-            description={notes[currentNoteIndex].description}
-            content={notes[currentNoteIndex].content}
-            date={notes[currentNoteIndex].date}
-          />
-
-          {/* Previous and Next buttons */}
-        </div>
-      ) : (
-        <p className="text-center text-gray-600">No notes found</p>
-      )}
     </div>
   );
 }
@@ -83,7 +47,7 @@ interface NoteCardProps {
 
 export function NoteCard({ title, description, content, date }: NoteCardProps) {
   return (
-    <div className=" mx-20 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+    <div className=" mx-20 my-10 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
       {/* Title */}
       <div className="bg-blue-500 text-white px-4 py-2">
         <h2 className="text-lg font-semibold">{title}</h2>
