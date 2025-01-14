@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Create() {
@@ -83,7 +84,7 @@ export default function Create() {
         />
       </form>
       <div className='flex'>
-      <button className='border border-black bg-yellow-500 mr-5 text-white'><a href='/'>Go to home</a></button>  <button className='border border-black bg-yellow-500 text-white'><a href='/view'>Go to View</a></button>
+      <button className='border border-black bg-yellow-500 mr-5 text-white'><Link href='/'>Go to home</Link></button>  <button className='border border-black bg-yellow-500 text-white'><a href='/view'>Go to View</a></button>
     </div>
     </div>
   );
