@@ -1,23 +1,23 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Create() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [content, setContent] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [content, setContent] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
     const newNote = { title, description, content, date };
     notes.push(newNote);
-    localStorage.setItem('notes', JSON.stringify(notes));
-    setTitle('');
-    setDescription('');
-    setContent('');
-    setDate('');
-    alert('Note added successfully!');
+    localStorage.setItem("notes", JSON.stringify(notes));
+    setTitle("");
+    setDescription("");
+    setContent("");
+    setDate("");
+    alert("Note added successfully!");
   };
 
   return (
