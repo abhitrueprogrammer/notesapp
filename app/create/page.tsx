@@ -82,6 +82,9 @@ export default function Create() {
           className="bg-blue-600 text-white border border-black rounded-sm px-4 py-2 w-full"
         />
       </form>
+      <div className='flex'>
+      <button className='border border-black bg-yellow-500 mr-5 text-white'><a href='/'>Go to home</a></button>  <button className='border border-black bg-yellow-500 text-white'><a href='/view'>Go to View</a></button>
+    </div>
     </div>
   );
 }

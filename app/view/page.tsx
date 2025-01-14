@@ -34,6 +34,9 @@ export default function View() {
           <p className="text-center text-gray-600">No notes found</p>
         )}
       </div>
+      <div className='flex'>
+      <button className='border border-black bg-yellow-500 mr-5 text-white'><a href='/'>Go to home</a></button>  <button className='border border-black bg-yellow-500 text-white'><a href='/create'>Go to Create</a></button>
+    </div>
     </div>
   );
 }
