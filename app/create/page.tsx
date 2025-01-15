@@ -8,9 +8,10 @@ export default function Create() {
   const [content, setContent] = useState("");
   const [date, setDate] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    
+    const notes = JSON.parse(localStorage.getItem("notes") || "[]")
     const newNote = { title, description, content, date };
     notes.push(newNote);
     localStorage.setItem("notes", JSON.stringify(notes));
