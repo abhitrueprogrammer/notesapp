@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export default function View() {
@@ -35,14 +34,7 @@ export default function View() {
           <p className="text-center text-gray-600">No notes found</p>
         )}
       </div>
-      <div className="flex">
-        <button className="border border-black bg-yellow-500 mr-5 text-white">
-          <Link href="/">Go to home</Link>
-        </button>{" "}
-        <button className="border border-black bg-yellow-500 text-white">
-          <a href="/create">Go to Create</a>
-        </button>
-      </div>
+
     </div>
   );
 }

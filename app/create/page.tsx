@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Create() {
@@ -8,9 +7,9 @@ export default function Create() {
   const [content, setContent] = useState("");
   const [date, setDate] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const notes = JSON.parse(localStorage.getItem("notes") || "[]");
     const newNote = { title, description, content, date };
     notes.push(newNote);
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -84,7 +83,6 @@ export default function Create() {
         />
       </form>
       <div className='flex'>
-      <button className='border border-black bg-yellow-500 mr-5 text-white'><Link href='/'>Go to home</Link></button>  <button className='border border-black bg-yellow-500 text-white'><a href='/view'>Go to View</a></button>
     </div>
     </div>
   );
