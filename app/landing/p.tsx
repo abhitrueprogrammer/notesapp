@@ -43,8 +43,16 @@ export default function LandingPage() {
             </Link>
           </div>
         </div>
-
-        <Image src={notes} alt="Illustration" className="max-w-full h-auto" />
+        <div className=" pl-32">
+          <div className="relative">
+            <Image
+              src={notes}
+              alt="Illustration"
+              className="max-w-full h-auto"
+            />
+            <div className="absolute top-[-20px] right-[-10px] w-20 h-20 border-4 border-dashed border-blue-500 rounded-full"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
